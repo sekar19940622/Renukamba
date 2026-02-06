@@ -12,7 +12,7 @@ const products = [
         name: "kulambu masala / 50grm",
         description: "Fresh, crispy red apples packed with nutrients and natural sweetness.",
         price: 45,
-        image: "Assets/003.jpg",
+        image: "003.jpg",
         rating: 4.8,
         badge: "Popular"
     },
