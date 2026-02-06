@@ -21,7 +21,7 @@ const products = [
         name: "mutton masala / 50grm",
         description: "Naturally sweet bananas perfect for smoothies and snacking.",
         price: 45,
-        image: "Assets/004.jpg",
+        image: "004.jpg",
         rating: 4.6,
         badge: "Organic"
     },
@@ -30,7 +30,7 @@ const products = [
         name: "sambar powder / 50grm",
         description: "Tropical mangoes bursting with flavor and vitamin C.",
         price: 45,
-        image: "Assets/005.jpg",
+        image: "005.jpg",
         rating: 4.9,
         badge: "Seasonal"
     },
@@ -39,7 +39,7 @@ const products = [
         name: "Puliyogare powder / 50grm",
         description: "Sweet and seedless grapes perfect for healthy snacking.",
         price: 40,
-        image: "Assets/006.jpg",
+        image: "006.jpg",
         rating: 4.7,
         badge: "Fresh"
     },
@@ -48,7 +48,7 @@ const products = [
         name: "Rasam powder / 50grm",
         description: "Juicy oranges packed with vitamin C and natural citrus flavor.",
         price: 45,
-        image: "Assets/007.jpg",
+        image: "007.jpg",
         rating: 4.5,
         badge: "Vitamin C"
     },
@@ -57,7 +57,7 @@ const products = [
         name: "chicken masala / 50grm",
         description: "Sweet, red strawberries perfect for desserts and smoothies.",
         price: 45,
-        image: "Assets/008.jpg",
+        image: "008.jpg",
         rating: 4.8,
         badge: "Premium"
     }
