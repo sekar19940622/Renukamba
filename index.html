@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-leaf"></i>
+                <span>RENUKAMBA ENTERPRISES</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#products" class="nav-link">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item cart-item">
+                    <button class="cart-btn" onclick="toggleCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <p class="empty-cart">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: ₹<span id="cart-total">0.00</span></strong>
+            </div>
+            <button class="checkout-btn" onclick="showCheckout()" disabled id="checkout-btn">
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+
+    <!-- Hero Section - Two Column Layout -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Fresh & Organic masala Delivered to Your Door</h1>
+                    <p class="hero-subtitle">Experience nature's finest selection of hand-picked, pesticide-free Spices delivered fresh from our farms to your table.</p>
+                    
+                    <div class="hero-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>100% Organic & Natural</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-shipping-fast"></i>
+                            <span>Same Day Delivery Available</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-leaf"></i>
+                            <span>Sustainably Grown & Sourced</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-buttons">
+                        <button class="cta-btn" onclick="scrollToSection('products')">
+                            <i class="fas fa-shopping-basket"></i>
+                            Shop Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <!-- Fruit PNG Logo/Image -->
+                    <img src="Assets/.png" alt="Orange Splash" class="fruit-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Fresh Masala</h2>
+                <p>We are passionate about delivering the freshest, highest quality organic spices directly from farm to your table.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Mission</h3>
+                    <p>To provide you with the freshest, most nutritious spices while supporting sustainable farming practices and local communities.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-leaf"></i>
+                            <h4>100% Organic</h4>
+                            <p>All our spice are certified organic and pesticide-free</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-truck"></i>
+                            <h4>Fast Delivery</h4>
+                            <p>Same-day delivery for orders placed before 2 PM</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>Quality Guarantee</h4>
+                            <p>100% satisfaction guaranteed or your money back</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="Assets/010.png" alt="PineApple Splash">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Fresh Products</h2>
+                <p>Discover our wide selection of premium organic spices</p>
+            </div>
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Customers Say</h2>
+                <p>Real reviews from real customers</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-track" id="testimonial-track">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Absolutely top-quality fruits! Everything was incredibly fresh, delivered right on time, and packed with great care. Will definitely order again!"</p>
+                            <div class="testimonial-author">
+                                <img src="Assets/Customer/Dipankar Dutta Choudhury.png" alt="Customer">
+                                <div>
+                                    <h4>sekar</h4>
+                                    <span>Regular Customer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Outstanding freshness and flavor! The delivery was fast, and the packaging kept everything in perfect condition. Couldn’t be happier!"</p>
+                            <div class="testimonial-author">
+                                <img src="Assets/Customer/Rekha Das.jpg" alt="Customer">
+                                <div>
+                                    <h4>mohan</h4>
+                                    <span>Regular Customer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Super fresh fruits and excellent service! The order arrived quickly and was beautifully packed. Highly satisfied and highly recommended!"</p>
+                            <div class="testimonial-author">
+                                <img src="Assets/Customer/Dr. Neelkamal Deka.png" alt="Customer">
+                                <div>
+                                    <h4>Dr. shankar</h4>
+                                    <span>Regular Customer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-controls">
+                    <button class="testimonial-btn prev" onclick="moveTestimonial(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="testimonial-btn next" onclick="moveTestimonial(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h3>Stay Fresh with Our Newsletter</h3>
+                    <p>Get weekly updates on new arrivals, seasonal fruits, and exclusive offers!</p>
+                </div>
+                <form class="newsletter-form" id="newsletter-form">
+                    <div class="input-group">
+                        <input type="email" placeholder="Enter your email" required id="newsletter-email">
+                        <button type="submit">Subscribe</button>
+                    </div>
+                    <p class="newsletter-message" id="newsletter-message"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <p>We'd love to hear from you</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>No.492/1A1 Salem Main Road,Chinnarampatti Kumarampatti Village.Tirupathur Dist.635 602</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 9080946821,  8904518721</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>rajubjkd9@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Hours</h4>
+                            <p>Mon - Sat: 6AM - 10PM<br>Sunday: 8AM - 8PM</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Your Phone">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                    <p class="contact-message" id="contact-message"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-leaf"></i>
+                        <span>Fresh Fruits</span>
+                    </div>
+                    <p>Fresh organic fruits, delivered straight to your doorstep. Quality guaranteed!</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/1AcKGpKBdS/"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Care</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-phone"></i> +91 9080946821</p>
+                        <p><i class="fas fa-envelope"></i> rajubjkd9@gmail.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i>TIRUPATHUR</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Fresh Fruits. All rights reserved. Made with <i class="fas fa-heart"></i> for healthy living.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-modal" id="checkout-modal">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h2>Complete Your Order</h2>
+                <button class="close-checkout" onclick="closeCheckout()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="checkout-body">
+                <div class="checkout-steps">
+                    <div class="step active">
+                        <span class="step-number">1</span>
+                        <span class="step-title">Personal Details</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="step-title">Delivery Address</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="step-title">Payment Method</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <span class="step-title">Order Review</span>
+                    </div>
+                </div>
+                
+                <form class="checkout-form" id="checkout-form">
+                    <!-- Step 1: Personal Details -->
+                    <div class="checkout-step active" data-step="1">
+                        <h3>Personal Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="step-navigation">
+                            <button type="button" class="btn-next" onclick="nextStep()">Next Step</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Delivery Address -->
+                    <div class="checkout-step" data-step="2">
+                        <h3>Delivery Address</h3>
+                        <div class="form-group">
+                            <label for="street">Street Address *</label>
+                            <input type="text" id="street" name="street" required>
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="apartment">Apartment, Suite, etc. (Optional)</label>
+                            <input type="text" id="apartment" name="apartment">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City *</label>
+                                <input type="text" id="city" name="city" required>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State *</label>
+                                <input type="text" id="state" name="state" required>
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="zipCode">Zip Code *</label>
+                                <input type="text" id="zipCode" name="zipCode" required>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country *</label>
+                                <select id="country" name="country" required>
+                                    <option value="">Select Country</option>
+                                    <option value="US">United States</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="IN">India</option>
+                                    <option value="AU">Australia</option>
+                                </select>
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="instructions">Delivery Instructions (Optional)</label>
+                            <textarea id="instructions" name="instructions" rows="3" placeholder="Any special instructions for delivery?"></textarea>
+                        </div>
+                        <div class="step-navigation">
+                            <button type="button" class="btn-prev" onclick="prevStep()">Previous</button>
+                            <button type="button" class="btn-next" onclick="nextStep()">Next Step</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Payment Methods -->
+                    <div class="checkout-step" data-step="3">
+                        <h3>Select Payment Method</h3>
+                        <p>Choose how you want to pay for your fresh fruits</p>
+                        
+                        <div class="payment-methods">
+                            <div class="payment-options">
+                                <!-- UPI Payment -->
+                                <div class="payment-option" onclick="selectPaymentMethod('upi')" id="upi-payment">
+                                    <div class="payment-icon">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </div>
+                                    <h4>UPI Payment</h4>
+                                    <p>Fast and secure UPI payments</p>
+                                    <div class="upi-methods">
+                                        <div class="upi-logo">
+                                            <!-- Add PhonePay logo here -->
+                                            <img src="Assets/UPI/PhonePay.webp" alt="PhonePay">
+                                        </div>
+                                        <div class="upi-logo">
+                                            <!-- Add Google Pay logo here -->
+                                            <img src="Assets/UPI/GooglePay.png" alt="Google Pay">
+                                        </div>
+                                        <div class="upi-logo">
+                                            <!-- Add Paytm logo here -->
+                                            <img src="Assets/UPI/Paytm.png" alt="Paytm">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Card Payment -->
+                                <div class="payment-option" onclick="selectPaymentMethod('card')" id="card-payment">
+                                    <div class="payment-icon">
+                                        <i class="fas fa-credit-card"></i>
+                                    </div>
+                                    <h4>Card Payment</h4>
+                                    <p>Credit/Debit Card</p>
+                                    <div class="card-logos">
+                                        <i class="fab fa-cc-visa card-logo visa"></i>
+                                        <i class="fab fa-cc-mastercard card-logo mastercard"></i>
+                                        <i class="fab fa-cc-amex card-logo amex"></i>
+                                    </div>
+                                </div>
+                                
+                                <!-- COD Payment -->
+                                <div class="payment-option" onclick="selectPaymentMethod('cod')" id="cod-payment">
+                                    <div class="payment-icon">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                    </div>
+                                    <h4>Cash on Delivery</h4>
+                                    <p>Pay when you receive</p>
+                                    <div style="margin-top: 15px;">
+                                        <i class="fas fa-truck" style="color: var(--primary-green); font-size: 1.5rem;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="payment-details" style="display: none; margin-top: 30px;">
+                            <div class="form-group">
+                                <label id="payment-method-label">Payment Details</label>
+                                <div id="upi-details" style="display: none;">
+                                    <p>Please complete payment using your preferred UPI app.</p>
+                                    <div class="form-group">
+                                        <label for="upi-id">UPI ID</label>
+                                        <input type="text" id="upi-id" placeholder="yourname@upi">
+                                    </div>
+                                </div>
+                                <div id="card-details" style="display: none;">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="card-number">Card Number</label>
+                                            <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="card-name">Name on Card</label>
+                                            <input type="text" id="card-name" placeholder="John Doe">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="expiry">Expiry Date</label>
+                                            <input type="text" id="expiry" placeholder="MM/YY">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cvv">CVV</label>
+                                            <input type="text" id="cvv" placeholder="123">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="cod-details" style="display: none;">
+                                    <p>You'll pay the delivery person in cash when your order arrives.</p>
+                                    <p><strong>Note:</strong> Please have exact change ready.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="step-navigation">
+                            <button type="button" class="btn-prev" onclick="prevStep()">Previous</button>
+                            <button type="button" class="btn-next" onclick="nextStep()">Review Order</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Order Review -->
+                    <div class="checkout-step" data-step="4">
+                        <h3>Order Review</h3>
+                        <div class="order-summary" id="order-summary">
+                            <!-- Order items will be populated here -->
+                        </div>
+                        <div class="order-total">
+                            <div class="total-row">
+                                <span>Subtotal:</span>
+                                <span>₹<span id="subtotal">0.00</span></span>
+                            </div>
+                            <div class="total-row">
+                                <span>Delivery Fee:</span>
+                                <span>₹<span id="delivery-fee">50</span></span>
+                            </div>
+                            <div class="total-row total-final">
+                                <strong>
+                                    <span>Total:</span>
+                                    <span>₹<span id="final-total">0.00</span></span>
+                                </strong>
+                            </div>
+                        </div>
+                        
+                        <div id="selected-payment-method" style="background: var(--light-green); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                            <h4>Selected Payment Method:</h4>
+                            <p id="payment-method-display">None selected</p>
+                        </div>
+                        
+                        <div class="step-navigation">
+                            <button type="button" class="btn-prev" onclick="prevStep()">Previous</button>
+                            <button type="submit" class="btn-order">Place Order</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div class="confirmation-modal" id="confirmation-modal">
+        <div class="confirmation-content">
+            <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Thank You!</h2>
+            <p>Your fruits will be delivered soon.</p>
+            <p class="order-details">Order #<span id="order-number"></span></p>
+            <p class="delivery-info">Expected delivery: <span id="delivery-date"></span></p>
+            <button class="btn-continue" onclick="closeConfirmation()">Continue Shopping</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
