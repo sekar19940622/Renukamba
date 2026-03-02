@@ -9,7 +9,7 @@ let selectedPaymentMethod = null;
 const products = [
     {
         id: 1,
-        name: "kulambu masala / 50grm",
+        name: "kulambu masala / 100grm",
         description: "Fresh, crispy red apples packed with nutrients and natural sweetness.",
         price: 45,
         image: "003.jpg",
@@ -18,7 +18,7 @@ const products = [
     },
     {
         id: 2,
-        name: "mutton masala / 50grm",
+        name: "mutton masala / 100grm",
         description: "Naturally sweet bananas perfect for smoothies and snacking.",
         price: 45,
         image: "004.jpg",
@@ -27,7 +27,7 @@ const products = [
     },
     {
         id: 3,
-        name: "sambar powder / 50grm",
+        name: "sambar powder / 100grm",
         description: "Tropical mangoes bursting with flavor and vitamin C.",
         price: 45,
         image: "005.jpg",
@@ -36,7 +36,7 @@ const products = [
     },
     {
         id: 4,
-        name: "Puliyogare powder / 50grm",
+        name: "Puliyogare powder / 100grm",
         description: "Sweet and seedless grapes perfect for healthy snacking.",
         price: 40,
         image: "006.jpg",
@@ -45,7 +45,7 @@ const products = [
     },
     {
         id: 5,
-        name: "Rasam powder / 50grm",
+        name: "Rasam powder / 100grm",
         description: "Juicy oranges packed with vitamin C and natural citrus flavor.",
         price: 45,
         image: "007.jpg",
@@ -54,7 +54,7 @@ const products = [
     },
     {
         id: 6,
-        name: "chicken masala / 50grm",
+        name: "chicken masala / 100grm",
         description: "Sweet, red strawberries perfect for desserts and smoothies.",
         price: 45,
         image: "008.jpg",
